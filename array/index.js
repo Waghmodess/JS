@@ -15,7 +15,7 @@ function findMinAndMax(arr) {
   }
   return { max, min };
 }
-console.log(findMinAndMax(arr));
+// console.log(findMinAndMax(arr));
 
 // B. Using Built-in Methods (Math.max() & Math.min())
 function findMinAndMaxUsingMath(arr) {
@@ -23,7 +23,7 @@ function findMinAndMaxUsingMath(arr) {
   const min = Math.min(...arr);
   return { max, min };
 }
-console.log(findMinAndMaxUsingMath(arr));
+// console.log(findMinAndMaxUsingMath(arr));
 
 // ------------------------------------------------------------------------------
 
@@ -50,20 +50,45 @@ function findThreeLargestDistinct(array) {
   }
   return { largest, secondLargest, thirdLargest };
 }
-console.log(findThreeLargestDistinct(array));
+// console.log(findThreeLargestDistinct(array));
 
 // B. Using Built-in Methods (Math.max() & Math.min())
 function findSecondAndThirdLargest(arr) {
     const sorted = [...new Set(arr)].sort((a, b) => b - a);
-    console.log(sorted);
-
     return {
+        largest: sorted[0],
         secondLargest: sorted[1],
         thirdLargest: sorted[2],
     };
 }
 
-console.log(findSecondAndThirdLargest(arr));
+// console.log(findSecondAndThirdLargest(arr));
 
 // ------------------------------------------------------------------------------
 
+// 3. Remove duplicates from an array
+// A. Without Using Built-in Methods
+let arrDup = [1, 2, 3, 4, 5, 5, 4, 1];
+function removeDuplicates(arrDup) {
+    let res = [];
+    for (let i = 0; i < arrDup.length; i++) {
+        let duplicate = false;
+        for (let j = 0; j < res.length; j++) {
+            if (arrDup[i] === res[j]) {
+                duplicate = true;
+                break;
+            }
+        }
+        if (!duplicate) {
+            res.push(arrDup[i]);
+        }
+    }
+    return res;
+}
+console.log(removeDuplicates(arrDup));
+
+// B. Using Built-in Methods (Set)
+function removeDuplicatesUsingSet(arrDup) {
+    return [...new Set(arrDup)];    
+}
+console.log(removeDuplicatesUsingSet(arrDup));
