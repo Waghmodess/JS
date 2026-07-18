@@ -1,0 +1,124 @@
+Array-based Questions:
+
+Find the largest and smallest number in an array
+Find the second and third largest numbers in an array
+Remove duplicates from an array
+Find duplicate elements in an array
+Count frequency of array elements
+Find missing number in an array
+Find the intersection of two arrays
+Find the union of two arrays
+Rotate an array left/right
+Reverse an array
+Move all zeros to the end of an array
+Find the maximum sum subarray (Kadane's algorithm)
+Find two numbers that add up to a target (Two Sum)
+Find three numbers that add up to a target (Three Sum)
+Sort an array without using .sort()
+Merge two sorted arrays
+Find common elements in multiple arrays
+Flatten a nested array
+Chunk an array into smaller arrays
+
+String-based Questions:
+
+Reverse a string
+Check if a string is a palindrome
+Find the first non-repeating character in a string
+Find the first repeating character in a string
+Count the frequency of each character in a string
+Find duplicate characters in a string
+Remove duplicate characters from a string
+Check if two strings are anagrams
+Find the longest word in a sentence
+Find the longest substring without repeating characters
+Find the longest common prefix among strings
+Count vowels and consonants in a string
+Capitalize the first letter of each word
+Reverse words in a sentence
+Find the number of occurrences of a substring
+Replace spaces with a specific character
+Check if a string contains only digits
+Generate all permutations of a string
+Find all possible substrings of a string
+Compress a string (example: aaabbc → a3b2c1)
+
+Object-based Questions:
+
+Count object property values
+Find duplicate objects in an array
+Group objects by a property
+Convert array into an object
+Convert object into an array
+Deep clone an object
+Compare two objects
+Merge two objects
+Find keys with specific values
+Remove a property from an object
+
+Number-based Questions:
+
+Check if a number is prime
+Generate prime numbers up to N
+Find factorial of a number
+Generate Fibonacci series
+Check if a number is Armstrong number
+Check if a number is a palindrome
+Reverse a number
+Find sum of digits of a number
+Count digits in a number
+Find GCD and LCM of two numbers
+
+JavaScript Logic / ES6 Questions:
+
+Implement map() manually
+Implement filter() manually
+Implement reduce() manually
+Implement debounce function
+Implement throttle function
+Write a custom bind() function
+Write a custom call() function
+Write a custom apply() function
+Implement memoization
+Implement a once-only function
+
+Recursion Questions:
+
+Reverse a string using recursion
+Factorial using recursion
+Fibonacci using recursion
+Flatten nested arrays using recursion
+Find nested object values
+Generate subsets of an array
+Generate permutations using recursion
+Solve Tower of Hanoi
+
+Data Structure Questions:
+
+Implement Stack using JavaScript
+Implement Queue using JavaScript
+Implement Linked List
+Reverse a Linked List
+Detect cycle in Linked List
+Implement Binary Search
+Implement Binary Tree traversal
+Find tree height
+Find lowest common ancestor in a tree
+Implement HashMap
+
+Practical Frontend JavaScript Questions:
+
+Search/filter data from an array of objects
+Sort table data dynamically
+Pagination logic
+Infinite scroll implementation
+Form validation logic
+LocalStorage CRUD operations
+Implement a countdown timer
+Implement a stopwatch
+Implement autocomplete search
+Implement drag and drop logic
+Implement image lazy loading
+Implement a simple event emitter
+
+These are the kinds of problems commonly asked for JavaScript developer interviews (beginner to mid-level).
