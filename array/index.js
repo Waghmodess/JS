@@ -152,3 +152,20 @@ function flattenArray(arrFlat) {
     return res;
 }
 console.log(flattenArray(arrFlat));
+
+// 8. Find two numbers that add up to a target (Two Sum)
+let arrSun = [2, 7, 11, 15];
+let target = 9;
+function twoSum(arrSun, target) {
+    for (let i = 0; i < arrSun.length; i++) {
+        for (let j = i + 1; j < arrSun.length; j++) {
+            if (arrSun[i] + arrSun[j] === target) {
+                return [arrSun[i], arrSun[j]];
+                return [i, j];
+            }
+        }
+    }
+
+    return [];
+}
+console.log(twoSum(arrSun, target));
