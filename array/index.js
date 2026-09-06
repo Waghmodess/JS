@@ -92,3 +92,16 @@ function removeDuplicatesUsingSet(arrDup) {
     return [...new Set(arrDup)];    
 }
 console.log(removeDuplicatesUsingSet(arrDup));
+
+
+// 4. Reverse an array: Without Using Built-in Methods
+
+let arrRev = [1, 2, 3, 4, 5];
+function reverseArray(arrRev) {
+    let result = [];
+    for (let i = arrRev.length - 1; i >= 0; i--) {
+        result.push(arrRev[i]);
+    }
+    return result;
+}
+console.log(reverseArray(arrRev));
