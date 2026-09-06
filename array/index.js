@@ -169,3 +169,20 @@ function twoSum(arrSun, target) {
     return [];
 }
 console.log(twoSum(arrSun, target));
+
+// 9. Find three numbers that add up to a target (Three Sum)
+let arrSum3 = [2, 7, 11, 15];
+let target1 = 20;
+function threeSum(arrSum3, target1) {
+    for (let i = 0; i < arrSum3.length; i++) {
+        for (let j = i + 1; j < arrSum3.length; j++) {
+            for (let k = j + 1; k < arrSum3.length; k++) {
+                if (arrSum3[i] + arrSum3[j] + arrSum3[k] === target1) {
+                    return [arrSum3[i], arrSum3[j], arrSum3[k]];
+                }
+            }
+        }
+    }
+    return [];
+}
+console.log(threeSum(arrSum3, target1));
