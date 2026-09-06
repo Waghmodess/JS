@@ -93,6 +93,57 @@ function removeDuplicatesUsingSet(arrDup) {
 }
 console.log(removeDuplicatesUsingSet(arrDup));
 
+// 3.1 Find duplicate elements in an array:
+
+let arrDupUnique = [1, 1, 2, 3, 4, 5, 5, 5];
+function findDup(arrDupUnique) {
+    let res = [];
+    for (let i = 0; i < arrDupUnique.length; i++) {
+        let duplicate = false;
+        for (let j = i + 1; j < arrDupUnique.length; j++) {
+            if (arrDupUnique[i] === arrDupUnique[j]) {
+                duplicate = true;
+                break;
+            }
+        }
+        if (duplicate) {
+            res.push(arrDupUnique[i]);
+        }
+    }
+    return res;
+}
+console.log(findDup(arrDupUnique));
+
+// == OR ==
+
+function findDup(arrDupUnique) {
+    let res = [];
+    for (let i = 0; i < arrDupUnique.length; i++) {
+        let duplicate = false;
+        // Check if current element appears again
+        for (let j = i + 1; j < arrDupUnique.length; j++) {
+            if (arrDupUnique[i] === arrDupUnique[j]) {
+                duplicate = true;
+                break;
+            }
+        }
+        if (duplicate) {
+            // Check if we already added this value
+            let alreadyAdded = false;
+            for (let k = 0; k < res.length; k++) {
+                if (res[k] === arr[i]) {
+                    alreadyAdded = true;
+                    break;
+                }
+            }
+            if (!alreadyAdded) {
+                res.push(arrDupUnique[i]);
+            }
+        }
+    }
+    return res;
+}
+console.log(findDup(arrDupUnique)); // [1, 5]
 
 // 4. Reverse an array: Without Using Built-in Methods
 
