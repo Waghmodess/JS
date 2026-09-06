@@ -137,3 +137,18 @@ function moveZerosToEnd(arrMoveZero) {
     return arrMoveZero;
 }
 console.log(moveZerosToEnd(arrMoveZero));
+
+// 7. Flatten a nested array
+let arrFlat = [1, [2, 3], [4], [5, 6, [7, [8]]], 9];
+let res = [];
+function flattenArray(arrFlat) {
+    for (let i = 0; i < arrFlat.length; i++) {
+        if (Array.isArray(arrFlat[i])) {
+            flattenArray(arrFlat[i]);
+        } else {
+            res.push(arrFlat[i]);
+        }
+    }
+    return res;
+}
+console.log(flattenArray(arrFlat));
