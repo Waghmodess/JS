@@ -1,6 +1,8 @@
-// 1. Find the Largest and Smallest Number in an Array.
+// 1. Find the Largest and Smallest Number in an Array
+
 // A. Without Using Built-in Methods
-const arr = [1, 2, 3, 4, 5, 5, 1];
+
+const arrMinMax = [1, 2, 3, 4, 5, 5, 1];
 
 function findMinAndMax(arr) {
   let max = arr[0];
@@ -15,28 +17,31 @@ function findMinAndMax(arr) {
   }
   return { max, min };
 }
-// console.log(findMinAndMax(arr));
 
-// B. Using Built-in Methods (Math.max() & Math.min())
+console.log(findMinAndMax(arrMinMax));
+
+// B. Using Built-in Methods
+
 function findMinAndMaxUsingMath(arr) {
   const max = Math.max(...arr);
   const min = Math.min(...arr);
   return { max, min };
 }
-// console.log(findMinAndMaxUsingMath(arr));
 
-// ------------------------------------------------------------------------------
+console.log(findMinAndMaxUsingMath(arrMinMax));
 
-// 2. Find the first, second and third largest numbers in an array
+// 2. Find the First, Second and Third Largest Numbers
+
 // A. Without Using Built-in Methods
-let array = [1, 2, 3, 4, 5, 5, 4, 3, 2, 1];
-function findThreeLargestDistinct(array) {
+
+const arrLargest = [1, 2, 3, 4, 5, 5, 4, 3, 2, 1];
+
+function findThreeLargestDistinct(arr) {
   let largest = -Infinity;
   let secondLargest = -Infinity;
   let thirdLargest = -Infinity;
-
-  for (let i = 0; i < array.length; i++) {
-    let num = array[i];
+  for (let i = 0; i < arr.length; i++) {
+    let num = arr[i];
     if (num > largest) {
       thirdLargest = secondLargest;
       secondLargest = largest;
@@ -44,196 +49,203 @@ function findThreeLargestDistinct(array) {
     } else if (num > secondLargest && num !== largest) {
       thirdLargest = secondLargest;
       secondLargest = num;
-    } else if (num > thirdLargest && num !== largest && num !== secondLargest) {
+    } else if (
+      num > thirdLargest &&
+      num !== largest &&
+      num !== secondLargest
+    ) {
       thirdLargest = num;
     }
   }
-  return { largest, secondLargest, thirdLargest };
-}
-// console.log(findThreeLargestDistinct(array));
-
-// B. Using Built-in Methods (Math.max() & Math.min())
-function findSecondAndThirdLargest(arr) {
-    const sorted = [...new Set(arr)].sort((a, b) => b - a);
-    return {
-        largest: sorted[0],
-        secondLargest: sorted[1],
-        thirdLargest: sorted[2],
-    };
+  return {
+    largest,
+    secondLargest,
+    thirdLargest
+  };
 }
 
-// console.log(findSecondAndThirdLargest(arr));
+console.log(findThreeLargestDistinct(arrLargest));
 
-// ------------------------------------------------------------------------------
+// B. Using Built-in Methods
 
-// 3. Remove duplicates from an array
+function findThreeLargestUsingMethods(arr) {
+  const sorted = [...new Set(arr)].sort((a, b) => b - a);
+  return {
+    largest: sorted[0],
+    secondLargest: sorted[1],
+    thirdLargest: sorted[2]
+  };
+}
+
+console.log(findThreeLargestUsingMethods(arrLargest));
+
+// 3. Remove Duplicates from an Array
+
 // A. Without Using Built-in Methods
-let arrDup = [1, 2, 3, 4, 5, 5, 4, 1];
-function removeDuplicates(arrDup) {
-    let res = [];
-    for (let i = 0; i < arrDup.length; i++) {
-        let duplicate = false;
-        for (let j = 0; j < res.length; j++) {
-            if (arrDup[i] === res[j]) {
-                duplicate = true;
-                break;
-            }
-        }
-        if (!duplicate) {
-            res.push(arrDup[i]);
-        }
+
+const arrRemoveDuplicates = [1, 2, 3, 4, 5, 5, 4, 1];
+
+function removeDuplicates(arr) {
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    let duplicate = false;
+    for (let j = 0; j < result.length; j++) {
+      if (arr[i] === result[j]) {
+        duplicate = true;
+        break;
+      }
     }
-    return res;
+    if (!duplicate) {
+      result.push(arr[i]);
+    }
+  }
+  return result;
 }
-console.log(removeDuplicates(arrDup));
 
-// B. Using Built-in Methods (Set)
-function removeDuplicatesUsingSet(arrDup) {
-    return [...new Set(arrDup)];    
+console.log(removeDuplicates(arrRemoveDuplicates));
+
+// B. Using Built-in Methods
+
+function removeDuplicatesUsingSet(arr) {
+  return [...new Set(arr)];
 }
-console.log(removeDuplicatesUsingSet(arrDup));
 
-// 3.1 Find duplicate elements in an array:
+console.log(removeDuplicatesUsingSet(arrRemoveDuplicates));
 
-let arrDupUnique = [1, 1, 2, 3, 4, 5, 5, 5];
-function findDup(arrDupUnique) {
-    let res = [];
-    for (let i = 0; i < arrDupUnique.length; i++) {
-        let duplicate = false;
-        for (let j = i + 1; j < arrDupUnique.length; j++) {
-            if (arrDupUnique[i] === arrDupUnique[j]) {
-                duplicate = true;
-                break;
-            }
+// 4. Find Duplicate Elements in an Array
+
+const arrDuplicates = [1, 1, 2, 3, 4, 5, 5, 5];
+
+function findDuplicates(arr) {
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    let duplicate = false;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] === arr[j]) {
+        duplicate = true;
+        break;
+      }
+    }
+    if (duplicate) {
+      let alreadyAdded = false;
+      for (let k = 0; k < result.length; k++) {
+        if (result[k] === arr[i]) {
+          alreadyAdded = true;
+          break;
         }
-        if (duplicate) {
-            res.push(arrDupUnique[i]);
+      }
+      if (!alreadyAdded) {
+        result.push(arr[i]);
+      }
+    }
+  }
+  return result;
+}
+
+console.log(findDuplicates(arrDuplicates));
+
+// 5. Reverse an Array
+
+const arrReverse = [1, 2, 3, 4, 5];
+
+function reverseArray(arr) {
+  let result = [];
+  for (let i = arr.length - 1; i >= 0; i--) {
+    result.push(arr[i]);
+  }
+  return result;
+}
+
+console.log(reverseArray(arrReverse));
+
+// 6. Find Missing Number in an Array
+
+const arrMissing = [1, 2, 3, 5];
+
+function findMissingNumber(arr, n) {
+  const total = (n * (n + 1)) / 2;
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return total - sum;
+}
+
+console.log(findMissingNumber(arrMissing, 5));
+
+// 7. Move All Zeros to the End of an Array
+
+const arrZeros = [1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6];
+
+function moveZerosToEnd(arr) {
+  let position = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== 0) {
+      arr[position] = arr[i];
+      position++;
+    }
+  }
+  while (position < arr.length) {
+    arr[position] = 0;
+    position++;
+  }
+  return arr;
+}
+
+console.log(moveZerosToEnd(arrZeros));
+
+// 8. Flatten a Nested Array
+
+const arrNested = [1, [2, 3], [4], [5, 6, [7, [8]]], 9];
+
+let flattenedResult = [];
+function flattenArray(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      flattenArray(arr[i]);
+    } else {
+      flattenedResult.push(arr[i]);
+    }
+  }
+  return flattenedResult;
+}
+
+console.log(flattenArray(arrNested));
+
+// 9. Find Two Numbers That Add Up to a Target (Two Sum)
+
+const arrTwoSum = [2, 7, 11, 15];
+const targetTwoSum = 9;
+
+function twoSum(arr, target) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === target) {
+        return [arr[i], arr[j]];
+      }
+    }
+  }
+  return [];
+}
+
+console.log(twoSum(arrTwoSum, targetTwoSum));
+
+// 10. Find Three Numbers That Add Up to a Target (Three Sum)
+
+const arrThreeSum = [2, 7, 11, 15];
+const targetThreeSum = 20;
+
+function threeSum(arr, target) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      for (let k = j + 1; k < arr.length; k++) {
+        if (arr[i] + arr[j] + arr[k] === target) {
+          return [arr[i], arr[j], arr[k]];
         }
+      }
     }
-    return res;
+  }
+  return [];
 }
-console.log(findDup(arrDupUnique));
 
-// == OR ==
-
-function findDup(arrDupUnique) {
-    let res = [];
-    for (let i = 0; i < arrDupUnique.length; i++) {
-        let duplicate = false;
-        // Check if current element appears again
-        for (let j = i + 1; j < arrDupUnique.length; j++) {
-            if (arrDupUnique[i] === arrDupUnique[j]) {
-                duplicate = true;
-                break;
-            }
-        }
-        if (duplicate) {
-            // Check if we already added this value
-            let alreadyAdded = false;
-            for (let k = 0; k < res.length; k++) {
-                if (res[k] === arr[i]) {
-                    alreadyAdded = true;
-                    break;
-                }
-            }
-            if (!alreadyAdded) {
-                res.push(arrDupUnique[i]);
-            }
-        }
-    }
-    return res;
-}
-console.log(findDup(arrDupUnique)); // [1, 5]
-
-// 4. Reverse an array: Without Using Built-in Methods
-
-let arrRev = [1, 2, 3, 4, 5];
-function reverseArray(arrRev) {
-    let result = [];
-    for (let i = arrRev.length - 1; i >= 0; i--) {
-        result.push(arrRev[i]);
-    }
-    return result;
-}
-console.log(reverseArray(arrRev));
-
-// 5. Find missing number in an array.
-
-const arrMissNum = [1, 2, 3, 5];
-function findMissingNumber(arrMissNum, n) {
-    const total = (n * (n + 1)) / 2;
-    let sum = 0;
-    for (let i = 0; i < arrMissNum.length; i++) {
-        sum += arrMissNum[i];
-    }
-    return total - sum;
-}
-console.log(findMissingNumber(arrMissNum, 5));
-
-// 6. Move all zeros to the end of an array:
-
-let arrMoveZero = [1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6];
-function moveZerosToEnd(arrMoveZero) {
-    let pos = 0;
-    for (let i = 0; i < arrMoveZero.length; i++) {
-        if (arrMoveZero[i] !== 0) {
-            arrMoveZero[pos] = arrMoveZero[i];
-            pos++;
-        }
-    }
-    while (pos < arrMoveZero.length) {
-        arrMoveZero[pos] = 0;
-        pos++;
-    }
-    return arrMoveZero;
-}
-console.log(moveZerosToEnd(arrMoveZero));
-
-// 7. Flatten a nested array
-let arrFlat = [1, [2, 3], [4], [5, 6, [7, [8]]], 9];
-let res = [];
-function flattenArray(arrFlat) {
-    for (let i = 0; i < arrFlat.length; i++) {
-        if (Array.isArray(arrFlat[i])) {
-            flattenArray(arrFlat[i]);
-        } else {
-            res.push(arrFlat[i]);
-        }
-    }
-    return res;
-}
-console.log(flattenArray(arrFlat));
-
-// 8. Find two numbers that add up to a target (Two Sum)
-let arrSun = [2, 7, 11, 15];
-let target = 9;
-function twoSum(arrSun, target) {
-    for (let i = 0; i < arrSun.length; i++) {
-        for (let j = i + 1; j < arrSun.length; j++) {
-            if (arrSun[i] + arrSun[j] === target) {
-                return [arrSun[i], arrSun[j]];
-                return [i, j];
-            }
-        }
-    }
-
-    return [];
-}
-console.log(twoSum(arrSun, target));
-
-// 9. Find three numbers that add up to a target (Three Sum)
-let arrSum3 = [2, 7, 11, 15];
-let target1 = 20;
-function threeSum(arrSum3, target1) {
-    for (let i = 0; i < arrSum3.length; i++) {
-        for (let j = i + 1; j < arrSum3.length; j++) {
-            for (let k = j + 1; k < arrSum3.length; k++) {
-                if (arrSum3[i] + arrSum3[j] + arrSum3[k] === target1) {
-                    return [arrSum3[i], arrSum3[j], arrSum3[k]];
-                }
-            }
-        }
-    }
-    return [];
-}
-console.log(threeSum(arrSum3, target1));
+console.log(threeSum(arrThreeSum, targetThreeSum));
