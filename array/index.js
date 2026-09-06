@@ -105,3 +105,16 @@ function reverseArray(arrRev) {
     return result;
 }
 console.log(reverseArray(arrRev));
+
+// 5. Find missing number in an array.
+
+const arrMissNum = [1, 2, 3, 5];
+function findMissingNumber(arrMissNum, n) {
+    const total = (n * (n + 1)) / 2;
+    let sum = 0;
+    for (let i = 0; i < arrMissNum.length; i++) {
+        sum += arrMissNum[i];
+    }
+    return total - sum;
+}
+console.log(findMissingNumber(arrMissNum, 5));
