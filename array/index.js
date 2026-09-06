@@ -118,3 +118,22 @@ function findMissingNumber(arrMissNum, n) {
     return total - sum;
 }
 console.log(findMissingNumber(arrMissNum, 5));
+
+// 6. Move all zeros to the end of an array:
+
+let arrMoveZero = [1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6];
+function moveZerosToEnd(arrMoveZero) {
+    let pos = 0;
+    for (let i = 0; i < arrMoveZero.length; i++) {
+        if (arrMoveZero[i] !== 0) {
+            arrMoveZero[pos] = arrMoveZero[i];
+            pos++;
+        }
+    }
+    while (pos < arrMoveZero.length) {
+        arrMoveZero[pos] = 0;
+        pos++;
+    }
+    return arrMoveZero;
+}
+console.log(moveZerosToEnd(arrMoveZero));
